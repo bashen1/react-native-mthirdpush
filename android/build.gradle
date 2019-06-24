@@ -1,0 +1,57 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.3.1'
+    }
+}
+
+apply plugin: 'com.android.library'
+
+def safeExtGet(prop, fallback) {
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
+
+android {
+    compileSdkVersion safeExtGet("compileSdkVersion", 25)
+    buildToolsVersion safeExtGet("buildToolsVersion", '25.0.2')
+    defaultConfig {
+        minSdkVersion safeExtGet('minSdkVersion', 16)
+        targetSdkVersion safeExtGet('targetSdkVersion', 25)
+        versionCode 1
+        versionName "1.0"
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven {
+            url 'http://developer.huawei.com/repo/'
+        }
+    }
+}
+
+dependencies {
+    compile 'com.facebook.react:react-native:+'
+    //小米 SDK
+    compile 'cn.jiguang.sdk.plugin:xiaomi:3.2.0'
+    //华为 SDK
+    compile 'cn.jiguang.sdk.plugin:huawei:3.2.0'
+    //魅族 SDK
+    compile 'cn.jiguang.sdk.plugin:meizu:3.2.0'
+    //OPPO SDK
+    compile 'cn.jiguang.sdk.plugin:oppo:3.2.0'
+    //VIVO SDK
+    compile 'cn.jiguang.sdk.plugin:vivo:3.2.0'
+}
+  
