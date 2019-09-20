@@ -1,5 +1,5 @@
 
-package com.manmanbuy.mthirdpush;
+package com.maochunjie.mthirdpush;
 
 import java.util.Arrays;
 import java.util.Collections;

@@ -1,5 +1,5 @@
 
-package com.manmanbuy.mthirdpush;
+package com.maochunjie.mthirdpush;
 
 import android.app.Activity;
 import android.app.ActivityManager;

@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-mthirdpush",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "react-native library for jpush",
   "main": "index.js",
   "scripts": {
@@ -16,6 +16,10 @@
   ],
   "author": "bashen1 <maochunjie@gmail.com>",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bashen1/react-native-mthirdpush/issues"
+  },
+  "homepage": "https://github.com/bashen1/react-native-mthirdpush#readme",
   "peerDependencies": {
     "react-native": ">=0.40"
   }
