@@ -114,7 +114,7 @@ public class RNReactNativeMthirdpushModule extends ReactContextBaseJavaModule im
         String content = mapJSON.optString(KEY_CONTENT);
         String extras = mapJSON.optString(KEY_EXTRAS);
 
-        map.putString("id", String.valueOf(msgId));
+        map.putString("messageID", String.valueOf(msgId));
         map.putString("content", String.valueOf(content));
         map.putString("title", String.valueOf(title));
         map.putString("extras", String.valueOf(extras));
