@@ -44,14 +44,14 @@ allprojects {
 dependencies {
     implementation 'com.facebook.react:react-native:+'
     //小米 SDK
-    implementation 'cn.jiguang.sdk.plugin:xiaomi:3.3.4'
+    implementation 'cn.jiguang.sdk.plugin:xiaomi:3.2.0'
     //华为 SDK
-    implementation 'cn.jiguang.sdk.plugin:huawei:3.3.4'
+    implementation 'cn.jiguang.sdk.plugin:huawei:3.2.0'
     //魅族 SDK
-    implementation 'cn.jiguang.sdk.plugin:meizu:3.3.4'
+    implementation 'cn.jiguang.sdk.plugin:meizu:3.2.0'
     //OPPO SDK
-    implementation 'cn.jiguang.sdk.plugin:oppo:3.3.4'
+    implementation 'cn.jiguang.sdk.plugin:oppo:3.2.0'
     //VIVO SDK
-    implementation 'cn.jiguang.sdk.plugin:vivo:3.3.4'
+    implementation 'cn.jiguang.sdk.plugin:vivo:3.2.0'
 }
   

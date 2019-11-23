@@ -41,7 +41,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
-import com.manmanbuy.mthirdpush.RNReactNativeMthirdpushModule;
+import com.maochunjie.mthirdpush.RNReactNativeMthirdpushModule;
 
 public class OpenClickActivity extends ReactActivity {
     private static final String TAG = "OpenClickActivity";
