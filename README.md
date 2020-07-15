@@ -1,5 +1,14 @@
 # react-native-mthirdpush
+
+[![npm version](https://badge.fury.io/js/react-native-mthirdpush.svg)](https://badge.fury.io/js/react-native-mthirdpush)
+
 需要配合极光使用，这边只是提取各大厂商的SDK
+
+
+|         极光模块版本        |   极光版本  |   本模块版本  |
+| :-----------------: | :---: | :---: |
+| 2.5.3 | 3.2.0 | 2.0.5 |
+| 2.8.1 | 3.6.0 | 3.0.0 |
 
 # 安装
 
@@ -34,22 +43,14 @@ package 你的包名.jpush;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import cn.jpush.android.api.JPushInterface;
 import com.facebook.react.ReactActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import org.json.JSONException;
-import org.json.JSONObject;
 import com.maochunjie.mthirdpush.RNReactNativeMthirdpushModule;
 
 public class OpenClickActivity extends ReactActivity {
     private static final String TAG = "OpenClickActivity";
-    //消息Id
-    private static final String KEY_MSGID = "msg_id";
-
-    //该通知的下发通道
-    private static final String KEY_WHICH_PUSH_SDK = "rom_type";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,19 +78,10 @@ public class OpenClickActivity extends ReactActivity {
 
         Log.w(TAG, "msg content is " + String.valueOf(data));
         if (TextUtils.isEmpty(data)) return;
-        try {
-            JSONObject jsonObject = new JSONObject(data);
-            String msgId = jsonObject.optString(KEY_MSGID);
-            byte whichPushSDK = (byte) jsonObject.optInt(KEY_WHICH_PUSH_SDK);
-            //上报点击事件
-            JPushInterface.reportNotificationOpened(this, msgId, whichPushSDK);
-            RNReactNativeMthirdpushModule.handleIntent(data);
-            PackageManager packageManager = getPackageManager();
-            Intent intent = packageManager.getLaunchIntentForPackage(this.getPackageName());
-            startActivity(intent);
-        } catch (JSONException e) {
-            Log.w(TAG, "parse notification error");
-        }
+        RNReactNativeMthirdpushModule.handleIntent(this, data);
+        PackageManager packageManager = getPackageManager();
+        Intent intent = packageManager.getLaunchIntentForPackage(this.getPackageName());
+        startActivity(intent);
         finish();
     }
 }
@@ -100,6 +92,11 @@ public class OpenClickActivity extends ReactActivity {
 
 ```javascript
 import * as Mthirdpush from 'react-native-mthirdpush';
+
+Mthirdpush.notifyThirdJSDidLoad((resultCode) => {
+    if (resultCode === 0) {
+    }
+});
 
 //APP 内监听
 Mthirdpush.addReceiveThirdNotificationListener(map => {

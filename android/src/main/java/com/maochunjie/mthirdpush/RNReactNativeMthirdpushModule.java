@@ -1,23 +1,13 @@
-
 package com.maochunjie.mthirdpush;
-
 import android.app.Activity;
-import android.app.ActivityManager;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-
-import java.util.List;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import android.content.pm.PackageManager;
+import cn.jpush.android.api.JPushInterface;
 import androidx.annotation.Nullable;
 import android.util.SparseArray;
 import android.util.Log;
 import com.facebook.react.bridge.*;
-
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 
 public class RNReactNativeMthirdpushModule extends ReactContextBaseJavaModule implements ActivityEventListener, LifecycleEventListener {
@@ -100,7 +90,7 @@ public class RNReactNativeMthirdpushModule extends ReactContextBaseJavaModule im
         }
     }
 
-    public static void handleIntent(String data) {
+    public static void handleIntent(Activity context, String data) {
         WritableMap map = Arguments.createMap();
         JSONObject mapJSON = null;
         try {
@@ -114,11 +104,14 @@ public class RNReactNativeMthirdpushModule extends ReactContextBaseJavaModule im
         String content = mapJSON.optString(KEY_CONTENT);
         String extras = mapJSON.optString(KEY_EXTRAS);
 
-        map.putString("id", String.valueOf(msgId));
+        map.putString("messageID", String.valueOf(msgId));
         map.putString("content", String.valueOf(content));
         map.putString("title", String.valueOf(title));
         map.putString("extras", String.valueOf(extras));
         map.putString("platform", getPushSDKName(whichPushSDK));
+        //上报点击事件
+        JPushInterface.reportNotificationOpened(context, msgId, whichPushSDK);
+
         cacheInfo = map;//缓存数据
         if (mRAC != null) {
             sendEvent(mRAC, "addReceiveThirdNotificationListener", map);
