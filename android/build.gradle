@@ -43,17 +43,17 @@ allprojects {
 
 dependencies {
     //防止libs下的极光SDK冲突
-    compileOnly files('libs/jpush-android-3.6.0.jar')
+    compileOnly files('libs/jpush-android-3.8.0.jar')
     implementation 'com.facebook.react:react-native:+'
     //小米 SDK
-    implementation 'cn.jiguang.sdk.plugin:xiaomi:3.6.0'
+    implementation 'cn.jiguang.sdk.plugin:xiaomi:3.8.0'
     //华为 SDK
-    implementation 'cn.jiguang.sdk.plugin:huawei:3.6.0'
+    implementation 'cn.jiguang.sdk.plugin:huawei:3.8.0'
     //魅族 SDK
-    implementation 'cn.jiguang.sdk.plugin:meizu:3.6.0'
+    implementation 'cn.jiguang.sdk.plugin:meizu:3.8.0'
     //OPPO SDK
-    implementation 'cn.jiguang.sdk.plugin:oppo:3.6.0'
+    implementation 'cn.jiguang.sdk.plugin:oppo:3.8.0'
     //VIVO SDK
-    implementation 'cn.jiguang.sdk.plugin:vivo:3.6.0'
+    implementation 'cn.jiguang.sdk.plugin:vivo:3.8.0'
 }
   
