@@ -45,29 +45,27 @@ allprojects {
 
 dependencies {
     //防止libs下的极光SDK冲突
-    compileOnly files('libs/jpush-android-4.6.3.jar')
+    compileOnly files('libs/jpush-android-4.8.1.jar')
     implementation 'com.facebook.react:react-native:+'
     //小米 SDK
-    implementation 'cn.jiguang.sdk.plugin:xiaomi:4.6.3'
+    implementation 'cn.jiguang.sdk.plugin:xiaomi:4.8.1'
     //华为 SDK
-    implementation 'cn.jiguang.sdk.plugin:huawei:4.6.3'
+    implementation 'cn.jiguang.sdk.plugin:huawei:4.8.1'
     //魅族 SDK
-    implementation 'cn.jiguang.sdk.plugin:meizu:4.6.3'
+    implementation 'cn.jiguang.sdk.plugin:meizu:4.8.1'
     //OPPO SDK
-    implementation 'cn.jiguang.sdk.plugin:oppo:4.6.3'
+    implementation 'cn.jiguang.sdk.plugin:oppo:4.8.1'
     //VIVO SDK
-    implementation 'cn.jiguang.sdk.plugin:vivo:4.6.3'
+    implementation 'cn.jiguang.sdk.plugin:vivo:4.8.1'
 
-    //以下为 OPPO 3.0.0 aar需要依赖
-    implementation files('libs/com.heytap.msp-push-3.0.0.aar')
+    //以下为 OPPO 需要依赖
+    implementation files('libs/com.heytap.msp-push-3.1.0.aar')
     implementation 'com.google.code.gson:gson:2.6.2'
     implementation 'commons-codec:commons-codec:1.6'
     implementation 'androidx.annotation:annotation:1.1.0'
 
     // 以下是华为所需
     //JPush Android SDK 4.6.0 更新华为HMS SDK版本为:6.1.0.300,接入要求：Android Studio 3.6.1 或更高版本、Android Gradle 插件 3.5.4 或更高版本。
-    implementation 'com.huawei.hms:push:6.1.0.300'
-    //仅使用 com.huawei.hms:push:6.1.0.XXX 版本需要加 base 依赖，其他版本不需要
-    implementation 'com.huawei.hms:base:6.2.0.300'
+    implementation 'com.huawei.hms:push:6.5.0.300'
 }
   

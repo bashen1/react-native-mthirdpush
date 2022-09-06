@@ -11,9 +11,9 @@
 | 3.6.0 | 3.0.1 |
 | 3.8.0 | 3.1.0 |
 | 4.0.X | 3.2.0 |
+| 4.8.1 | 3.3.0 |
 
-# 安装
-
+## 安装
 
 ``` sh
 
@@ -22,9 +22,9 @@ react-native link react-native-mthirdpush
 
 ```
 
-# 配置
+## 配置
 
-## 编辑 AndroidManifest.xml 加入以下
+### 编辑 AndroidManifest.xml 加入以下
 
 ``` xml
 <!-- 点击通知时，要打开的 activity -->
@@ -38,7 +38,7 @@ react-native link react-native-mthirdpush
 </activity>
 ```
 
-## 包名下创建 jpush 目录，在目录下创建 OpenClickActivity 文件
+### 包名下创建 jpush 目录，在目录下创建 OpenClickActivity 文件
 
 ```java
 package 你的包名.jpush;
@@ -90,7 +90,7 @@ public class OpenClickActivity extends ReactActivity {
 
 ```
 
-# 使用
+## 使用
 
 ```javascript
 import * as Mthirdpush from 'react-native-mthirdpush';
