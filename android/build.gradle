@@ -45,18 +45,18 @@ allprojects {
 
 dependencies {
     //防止libs下的极光SDK冲突
-    compileOnly files('libs/jpush-android-4.9.0.jar')
+    compileOnly files('libs/jpush-android-5.0.0.jar')
     implementation 'com.facebook.react:react-native:+'
     //小米 SDK
-    implementation 'cn.jiguang.sdk.plugin:xiaomi:4.9.0'
+    implementation 'cn.jiguang.sdk.plugin:xiaomi:5.0.0'
     //华为 SDK
-    implementation 'cn.jiguang.sdk.plugin:huawei:4.9.0'
+    implementation 'cn.jiguang.sdk.plugin:huawei:5.0.0'
     //魅族 SDK
-    implementation 'cn.jiguang.sdk.plugin:meizu:4.9.0'
+    implementation 'cn.jiguang.sdk.plugin:meizu:5.0.0'
     //OPPO SDK
-    implementation 'cn.jiguang.sdk.plugin:oppo:4.9.0'
+    implementation 'cn.jiguang.sdk.plugin:oppo:5.0.0'
     //VIVO SDK
-    implementation 'cn.jiguang.sdk.plugin:vivo:4.9.0'
+    implementation 'cn.jiguang.sdk.plugin:vivo:5.0.0'
 
     //以下为 OPPO 需要依赖
     implementation files('libs/com.heytap.msp-push-3.1.0.aar')
