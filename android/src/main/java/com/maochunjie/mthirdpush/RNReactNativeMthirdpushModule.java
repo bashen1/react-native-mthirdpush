@@ -1,14 +1,25 @@
 package com.maochunjie.mthirdpush;
+
 import android.app.Activity;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import cn.jpush.android.api.JPushInterface;
+
 import androidx.annotation.Nullable;
+
+import android.os.Build;
 import android.util.SparseArray;
 import android.util.Log;
+
 import com.facebook.react.bridge.*;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
+import com.heytap.msp.push.HeytapPushManager;
 
 public class RNReactNativeMthirdpushModule extends ReactContextBaseJavaModule implements ActivityEventListener, LifecycleEventListener {
     private static String TAG = "RNReactNativeMthirdpushModule";
@@ -87,6 +98,64 @@ public class RNReactNativeMthirdpushModule extends ReactContextBaseJavaModule im
             } else {
                 callback.invoke(0);
             }
+        }
+    }
+
+    /**
+     * 是否支持 OPPO PUSH
+     */
+    @ReactMethod(isBlockingSynchronousMethod = true)
+    public boolean isSupportOppoPushSync() {
+        boolean res = false;
+        try {
+            res = HeytapPushManager.isSupportPush(reactContext);
+        } catch (Exception ignored) {
+        }
+        return res;
+    }
+
+    /**
+     * 创建推送渠道
+     */
+    @ReactMethod
+    public void createNotificationChannel(ReadableMap data) {
+        try {
+            NotificationManager manager = (NotificationManager) reactContext.getSystemService(Context.NOTIFICATION_SERVICE);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && manager != null) {
+                String channelId = data.getString("channelId");
+                String channelName = data.getString("channelName");
+                String channelDescription = data.getString("channelDescription");
+                int importance = NotificationManager.IMPORTANCE_HIGH; // 使用系统默认的声音与震动
+
+                NotificationChannel channel = manager.getNotificationChannel(channelId);
+                if (channel == null) {
+                    channel = new NotificationChannel(channelId, channelName, importance);
+                    channel.setDescription(channelDescription);
+                    channel.enableLights(true);
+                    channel.enableVibration(true);
+                    manager.createNotificationChannel(channel);
+                }
+            }
+        } catch (Exception ignored) {
+        }
+    }
+
+    /**
+     * 删除推送渠道
+     */
+    @ReactMethod
+    public void deleteNotificationChannel(ReadableMap data) {
+        try {
+            NotificationManager manager = (NotificationManager) reactContext.getSystemService(Context.NOTIFICATION_SERVICE);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && manager != null) {
+                String channelId = data.getString("channelId");
+
+                NotificationChannel channel = manager.getNotificationChannel(channelId);
+                if (channel != null) {
+                    manager.deleteNotificationChannel(channelId);
+                }
+            }
+        } catch (Exception ignored) {
         }
     }
 
