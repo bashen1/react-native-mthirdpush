@@ -14,6 +14,7 @@
 | 4.8.5 | 3.4.0 |
 | 4.9.0 | 3.5.0 |
 | 5.0.0 | 3.6.0 |
+| 5.0.0 | 3.7.0 |
 
 ## 安装
 
@@ -97,22 +98,56 @@ public class OpenClickActivity extends ReactActivity {
 ```javascript
 import * as Mthirdpush from 'react-native-mthirdpush';
 
+/**
+ * 初始化模块
+ * Android Only
+ */
 Mthirdpush.notifyThirdJSDidLoad((resultCode) => {
     if (resultCode === 0) {
     }
 });
 
-//APP 内监听
+/**
+ * 添加App内推送点击监听
+ * Android Only
+ */
 Mthirdpush.addReceiveThirdNotificationListener(map => {
     if (map !== undefined) {
         //操作
     }
 });
 
-//打开APP
+/**
+ * 打开APP触发，因为点击推送优先触发Android端，但是JS还未载入，所以冷热启动用这个
+ * Android Only
+ */
 Mthirdpush.getLaunchAppNotification(map => {
     if (map !== 0) {
         //操作
     }
 });
+
+/**
+ * 是否支持OPPO推送
+ * Android Only
+ */
+let isOppoPush = Mthirdpush.isSupportOppoPushSync();
+
+/**
+ * 创建推送通道，如果存在则不创建
+ * Android Only
+ */
+Mthirdpush.createNotificationChannel({
+    channelId: 'xxx',
+    channelName: '订阅通知',
+    channelDescription: '测试',
+});
+
+/**
+ * 删除推送通道
+ * Android Only
+ */
+Mthirdpush.deleteNotificationChannel({
+    channelId: 'xxx',
+})
 ```
