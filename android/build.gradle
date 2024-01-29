@@ -57,6 +57,9 @@ dependencies {
     implementation 'cn.jiguang.sdk.plugin:oppo:5.0.0'
     //VIVO SDK
     implementation 'cn.jiguang.sdk.plugin:vivo:5.0.0'
+    //荣耀 SDK
+    implementation(name:'HiPushSDK-v7.0.1.103', ext:'aar')
+    implementation 'cn.jiguang.sdk.plugin:honor:5.0.0'
 
     //以下为 OPPO 需要依赖
     implementation(name:'com.heytap.msp-push-3.1.0', ext:'aar')
