@@ -59,7 +59,7 @@ dependencies {
     implementation 'cn.jiguang.sdk.plugin:vivo:5.0.0'
 
     //以下为 OPPO 需要依赖
-    implementation files('libs/com.heytap.msp-push-3.1.0.aar')
+    implementation(name:'com.heytap.msp-push-3.1.0', ext:'aar')
     implementation 'com.google.code.gson:gson:2.6.2'
     implementation 'commons-codec:commons-codec:1.6'
     implementation 'androidx.annotation:annotation:1.1.0'
@@ -68,4 +68,3 @@ dependencies {
     //JPush Android SDK 4.6.0 更新华为HMS SDK版本为:6.1.0.300,接入要求：Android Studio 3.6.1 或更高版本、Android Gradle 插件 3.5.4 或更高版本。
     implementation 'com.huawei.hms:push:6.5.0.300'
 }
-  
