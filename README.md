@@ -27,6 +27,34 @@ react-native link react-native-mthirdpush
 
 ## 配置
 
+### 编辑 build.gradle 加入以下
+
+android/app/build.gradle
+
+``` gradle
+android {
+    defaultConfig {
+        applicationId "你的包名"
+        manifestPlaceholders = [
+            JPUSH_PKGNAME : applicationId,
+            JPUSH_APPKEY : "你的极光AppKey", //JPush上注册的包名对应的极光AppKey
+            JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+            MEIZU_APPKEY  : "MZ-aaaa",
+            MEIZU_APPID   : "MZ-aaa",
+            XIAOMI_APPID  : "MI-aaa",
+            XIAOMI_APPKEY : "MI-aaa",
+            HUAWEI_APPID  : "appid=aaaa",
+            OPPO_APPKEY   : "OP-aaa",
+            OPPO_APPID    : "OP-aaa",
+            OPPO_APPSECRET: "OP-aaaa",
+            VIVO_APPKEY   : "aaaa",
+            VIVO_APPID    : "123123",
+            HONOR_APPID   : "123123"
+        ]
+    }
+}
+```
+
 ### 编辑 AndroidManifest.xml 加入以下
 
 ``` xml
