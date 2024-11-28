@@ -60,7 +60,7 @@ dependencies {
     implementation 'cn.jiguang.sdk.plugin:meizu:5.5.3'
 
     //VIVO SDK
-    implementation 'cn.jiguang.sdk.plugin:vivo:5.5.3'
+    implementation 'cn.jiguang.sdk.plugin:vivo:5.5.3.a'
 
     //OPPO SDK
     implementation(name:'com.heytap.msp_3.5.2', ext:'aar')
