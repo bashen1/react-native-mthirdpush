@@ -15,6 +15,7 @@
 | 4.9.0 | 3.5.0 |
 | 5.0.0 | 3.6.0 |
 | 5.0.0 | 3.7.0 |
+| 5.5.3 | 3.8.0 |
 
 ## 安装
 
@@ -41,8 +42,8 @@ android {
             JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
             MEIZU_APPKEY  : "MZ-aaaa",
             MEIZU_APPID   : "MZ-aaa",
-            XIAOMI_APPID  : "MI-aaa",
-            XIAOMI_APPKEY : "MI-aaa",
+            XIAOMI_APPID  : "aaa",
+            XIAOMI_APPKEY : "aaa",
             HUAWEI_APPID  : "appid=aaaa",
             OPPO_APPKEY   : "OP-aaa",
             OPPO_APPID    : "OP-aaa",
