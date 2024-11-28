@@ -4,6 +4,8 @@
 
 需要配合极光使用，这边只是提取各大厂商的SDK
 
+[厂商集成文档](https://docs.jiguang.cn/jpush/client/Android/android_3rd_guide)
+
 |   极光版本  |   本模块版本  |
 | :---: | :---: |
 | 3.2.0 | 2.0.5 |
